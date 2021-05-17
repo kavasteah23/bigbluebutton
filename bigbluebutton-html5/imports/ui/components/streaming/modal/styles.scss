@@ -1,0 +1,219 @@
+@import "/imports/ui/stylesheets/variables/_all";
+@import "/imports/ui/components/modal/simple/styles";
+@import "/imports/ui/stylesheets/mixins/focus";
+
+.header {
+  margin: 0;
+  padding-bottom: 1rem;
+  border: none;
+  line-height: 2rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-background);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.videoOptions {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+}
+
+.overlay {
+  @extend .overlay;
+}
+
+.modal {
+  @extend .modal;
+  padding: 1.5rem;
+  min-height: 23rem;
+}
+
+.closeBtn {
+  position: relative;
+  background-color: var(--color-white);
+
+  i {
+    color: var(--color-gray-light);
+  }
+
+  &:focus,
+  &:hover{
+    background-color: var(--color-gray-lighter);
+    i{
+      color: var(--color-gray);
+    }
+  }
+}
+.warning{
+  text-align: center;
+  font-weight: var(--headings-font-weight);
+  font-size: 5rem;
+  white-space: normal;
+}
+.text{
+  margin: var(--line-height-computed);
+  text-align: center;
+}
+
+.main {
+  margin: var(--line-height-computed);
+  text-align: center;
+  font-size: var(--font-size-large);
+}
+
+.streamChoose {
+  text-align: center;
+  width: 100%;
+}
+
+.button  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: hsl(0,0%,0%);
+  line-height: 1.5;
+}
+
+.btnIcon {
+  // font-size: var(--font-size-large);
+  color: hsl(199, 47%, 20%);
+  height: 114px !important;
+  width: 114px !important;
+  border-radius: 50%;
+  background-color: #f1f8ff;
+  cursor: pointer;
+}
+
+.btnIcon:hover {
+  border: 6px solid var(--color-primary);
+  color: hsl(199, 47%, 28%);
+}
+
+.btnIcon > svg {
+  font-size: 61px;
+  width: 100%;
+  height: 100%;
+}
+
+.btnLabel {
+  margin-top: var(--btn-spacing);
+  font-size: 14px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.btnLabel:hover {
+  color: hsl(0,0%,20%);
+}
+
+.streamOpts {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.btnStopStream{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  color: hsl(0,0%,0%);
+  background-color: #f1f8ff;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.btnStopLabel:hover, .btnStopLabel:focus {
+  color: hsl(0,0%,20%);
+}
+
+.btnStopIcon {
+  color: hsl(2,75%,50%);
+  padding-right: 0.5rem;
+}
+
+.btnStopIcon:hover {
+  color: hsl(2,75%,60%);
+}
+
+.btnStopIcon > svg {
+  font-size: 1.2rem;
+}
+
+.startBtn {
+  display: flex;
+  align-self: center;
+  &:focus {
+    outline: none !important;
+  }
+
+  i{
+    color: #3c5764;
+  }
+
+  margin: 0;
+  width: 40%;
+  display: block;
+  position: absolute;
+  bottom:   20px;
+  color: var(--color-white) !important;
+  background-color: var(--color-link) !important;
+}
+
+.title {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.3rem;
+  white-space: normal;
+
+  @include mq(var(--small-only)) {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+.streamPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  
+}
+
+.urlError {
+  color: red;
+  padding: 1em 0 2.5em 0;
+
+  :global(.animationsEnabled) & {
+    transition: 1s;
+  }
+}
+
+.streamingNote {
+  color: var(--color-gray);
+  font-size: var(--font-size-small);
+  font-style: italic;
+  padding-top: var(--sm-padding-y);
+}

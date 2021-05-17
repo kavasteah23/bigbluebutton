@@ -10,6 +10,7 @@ import Icon from '../icon/component';
 import { styles } from './styles.scss';
 import Button from '../button/component';
 import RecordingIndicator from './recording-indicator/container';
+import StreamIndicator from './streaming-indicator/container';
 import TalkingIndicatorContainer from '/imports/ui/components/nav-bar/talking-indicator/container';
 import SettingsDropdownContainer from './settings-dropdown/container';
 
@@ -116,6 +117,11 @@ class NavBar extends PureComponent {
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
 
             <RecordingIndicator
+              mountModal={mountModal}
+              amIModerator={amIModerator}
+            />
+
+            <StreamIndicator
               mountModal={mountModal}
               amIModerator={amIModerator}
             />

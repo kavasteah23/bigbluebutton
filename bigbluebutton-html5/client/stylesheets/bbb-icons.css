@@ -120,6 +120,9 @@
 .icon-bbb-presentation:before {
   content: "\e90b";
 }
+.icon-bbb-streaming:before {
+  content: "\e928";
+}
 .icon-bbb-listen:before {
   content: "\e90c";
 }

@@ -6,8 +6,8 @@ public:
     autoJoin: true
     listenOnlyMode: true
     forceListenOnly: false
-    skipCheck: false
-    clientTitle: BigBlueButton
+    skipCheck: true
+    clientTitle: s4b conf
     appName: BigBlueButton HTML5 Client
     bbbServerVersion: 2.2
     copyright: "©2021 BigBlueButton Inc."
@@ -114,7 +114,8 @@ public:
     enableNetworkMonitoring: false
     packetLostThreshold: 10
   kurento:
-    wsUrl: HOST
+    # wsUrl: HOST
+    wsUrl: wss://dev.conf.sec4b.pl/bbb-webrtc-sfu
     # Valid for video-provider. Time (ms) before its WS connection times out
     # and tries to reconnect.
     wsConnectionTimeout: 4000

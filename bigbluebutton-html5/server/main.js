@@ -2,6 +2,7 @@ import '/imports/startup/server';
 
 // 2x
 import '/imports/api/meetings/server';
+import '/imports/api/stream-meeting/server';
 import '/imports/api/users/server';
 import '/imports/api/annotations/server';
 import '/imports/api/cursor/server';
@@ -27,6 +28,7 @@ import '/imports/api/guest-users/server';
 import '/imports/api/ping-pong/server';
 import '/imports/api/local-settings/server';
 import '/imports/api/voice-call-states/server';
+
 
 // Commons
 import '/imports/api/log-client/server';

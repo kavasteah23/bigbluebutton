@@ -59,7 +59,7 @@ export default withTracker(() => {
 
   let subscriptionsHandlers = SUBSCRIPTIONS.map((name) => {
     if ((!TYPING_INDICATOR_ENABLED && name.indexOf('typing') !== -1)
-      || (!CHAT_ENABLED && name.indexOf('chat') !== -1)) return;
+      || (!CHAT_ENABLED && name.indexOf('chat') !== -1)) return {};
 
     return Meteor.subscribe(name, subscriptionErrorHandler);
   });
@@ -68,6 +68,7 @@ export default withTracker(() => {
     subscriptionsHandlers.push(Meteor.subscribe('meetings', currentUser.role, subscriptionErrorHandler));
     subscriptionsHandlers.push(Meteor.subscribe('users', currentUser.role, subscriptionErrorHandler));
     subscriptionsHandlers.push(Meteor.subscribe('breakouts', currentUser.role, subscriptionErrorHandler));
+    subscriptionsHandlers.push(Meteor.subscribe('stream-meetings')); // added with streaming
   }
 
   let groupChatMessageHandler = {};

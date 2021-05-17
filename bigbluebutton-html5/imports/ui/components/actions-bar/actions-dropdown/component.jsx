@@ -13,6 +13,7 @@ import { withModalMounter } from '/imports/ui/components/modal/service';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
 import { styles } from '../styles';
 import ExternalVideoModal from '/imports/ui/components/external-video-player/modal/container';
+import StreamingModal from '/imports/ui/components/streaming/modal/container';
 
 const propTypes = {
   amIPresenter: PropTypes.bool.isRequired,
@@ -41,6 +42,14 @@ const intlMessages = defineMessages({
   presentationDesc: {
     id: 'app.actionsBar.actionsDropdown.presentationDesc',
     description: 'adds context to upload presentation option',
+  },
+  streamingLabel: {
+    id: 'app.actionsBar.actionsDropdown.streamingLabel',
+    description: 'Start streaming label',
+  },
+  streamingDesc: {
+    id: 'app.actionsBar.actionsDropdown.streamingDesc',
+    description: 'adds context to start streaming option',
   },
   desktopShareDesc: {
     id: 'app.actionsBar.actionsDropdown.desktopShareDesc',
@@ -80,12 +89,14 @@ class ActionsDropdown extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.streamingId = _.uniqueId('action-item-');
     this.presentationItemId = _.uniqueId('action-item-');
     this.pollId = _.uniqueId('action-item-');
     this.takePresenterId = _.uniqueId('action-item-');
 
     this.handlePresentationClick = this.handlePresentationClick.bind(this);
     this.handleExternalVideoClick = this.handleExternalVideoClick.bind(this);
+    this.handleStreamingClick = this.handleStreamingClick.bind(this);
   }
 
   componentWillUpdate(nextProps) {
@@ -112,6 +123,8 @@ class ActionsDropdown extends PureComponent {
       pollBtnDesc,
       presentationLabel,
       presentationDesc,
+      streamingLabel,
+      streamingDesc,
       takePresenter,
       takePresenterDesc,
     } = intlMessages;
@@ -161,6 +174,18 @@ class ActionsDropdown extends PureComponent {
           />
         )
         : null),
+      (amIPresenter // template for streaming option
+        ? (
+          <DropdownListItem
+            data-test="uploadPresentation"
+            icon="streaming"
+            label={formatMessage(streamingLabel)}
+            description={formatMessage(streamingDesc)}
+            key={this.streamingId}
+            onClick={this.handleStreamingClick}
+          />
+        )
+        : null),
       (amIPresenter && allowExternalVideo
         ? (
           <DropdownListItem
@@ -179,6 +204,11 @@ class ActionsDropdown extends PureComponent {
   handleExternalVideoClick() {
     const { mountModal } = this.props;
     mountModal(<ExternalVideoModal />);
+  }
+
+  handleStreamingClick() {
+    const { mountModal } = this.props;
+    mountModal(<StreamingModal />);
   }
 
   handlePresentationClick() {
